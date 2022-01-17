@@ -45,22 +45,31 @@ class Film {
 
     public function getFullTitle(){
         if($this -> subTitle){
-           return $this -> title . ": " . $this -> subTitle . "<br>" ;
+           return $this -> title . ": " . $this -> subTitle;
         } else {
-            return $this -> title . "<br>";
+            return $this -> title;
         }
+    }
 
-
+    public function __toString(){
+        if($this -> movieDirector){
+            return $this -> getFullTitle() . " | " . $this -> movieDirector . "<br>";
+        }else {
+            return $this -> getFullTitle() . " | " . "???" . "<br>";
+        }
     }
 }
 
 $film1 = new Film("Matrix");
-$film2 = new Film("Spiderman");
-$film3 = new Film("Venom");
+$film2 = new Film("Venom");
+$film3 = new Film("Spiderman");
 
-$film2 -> subTitle = "No Way Home"; 
+$film2 -> subTitle = "La Furia Di Carnage"; 
+$film3 -> subTitle = "No Way Home"; 
 
-echo $film1 -> getFullTitle();
-echo $film2 -> getFullTitle();
-echo $film3 -> getFullTitle();
+$film3 -> movieDirector = "Jonh Watts";
+
+echo $film1;
+echo $film2;
+echo $film3;
 ?>
