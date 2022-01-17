@@ -42,6 +42,25 @@ class Film {
     public function __construct($title){
     $this -> title = $title;
     }
+
+    public function getFullTitle(){
+        if($this -> subTitle){
+           return $this -> title . ": " . $this -> subTitle . "<br>" ;
+        } else {
+            return $this -> title . "<br>";
+        }
+
+
+    }
 }
 
+$film1 = new Film("Matrix");
+$film2 = new Film("Spiderman");
+$film3 = new Film("Venom");
+
+$film2 -> subTitle = "No Way Home"; 
+
+echo $film1 -> getFullTitle();
+echo $film2 -> getFullTitle();
+echo $film3 -> getFullTitle();
 ?>
